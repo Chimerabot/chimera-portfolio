@@ -1,0 +1,92 @@
+/* CHIMERA-PORTFOLIO COMPONENT STYLESHEET */
+
+/* This is the components CSS stylesheet, which contains rules that define how unique
+ * elements on the page look. Here, you can set up specific styling for specific pieces
+ * of the website that might show up multiple times on the same page.
+*/
+
+
+
+/* These class rules can be applied to align elements to the left/right of flex containers. */
+
+.left-align {
+  text-align: left;
+  margin-right: auto;
+  align-self: flex-start;
+}
+
+.right-align {
+  text-align: right;
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+
+
+/* These class rules can be applied to text to change how it looks. */
+
+.title-font {
+  font-family: "02.10", Helvetica, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  letter-spacing: 0.05em;
+}
+
+.accent-font {
+  font-family: "Vipnagorgialla", Helvetica, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.accent-body {
+  font-family: "Vipnagorgialla", Helvetica, sans-serif;
+  font-weight: 100;
+  font-size: clamp(1rem, 1.8vw, 1rem);
+}
+
+.accent-color {
+  color: var(--text-orange);
+}
+
+.bold-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.bold-subtitle {
+  color: var(--text-dark);
+  font-size: clamp(1.4rem, 2vw, 1.5rem);
+}
+
+.body-title {
+  color: var(--text-light);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 700;
+}
+
+
+
+/* These class rules can be applied to different pieces of the webpage to change their 
+ * colors, spacing, borders, and more. 
+ */
+
+ .gap {
+    display: inline-block;
+    height: var(--gap);
+ }
+
+.text-box {
+  display: inline-block;
+  width: 100%;
+  padding: 0.4rem 0.7rem;
+  background: var(--gradient-gray-light);
+  border-radius: 0.9rem;
+  border: 3px solid var(--bg-medium-gray);
+  color: var(--text-light);
+}
+
+.text-box-dark {
+  background: var(--gradient-gray-dark);
+  border: 3px solid var(--bg-dark-gray);
+}
+
+.content p {
+  line-height: 1.7;
+}

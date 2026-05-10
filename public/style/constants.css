@@ -1,0 +1,76 @@
+/* CHIMERA-PORTFOLIO CONSTANTS STYLESHEET */
+
+/* This stylesheet contains constant variables that can be used by all other CSS stylesheets.
+ * It's a good place to set up all the colors, fonts, and other unchanging pieces that you'll
+ * need to make the site your own!
+ */
+
+
+
+/* Below are custom fonts, defined with @font-face.
+ *
+ * You can add your own by putting a new font file in the project and copying this template, then
+ * changing the font-family name to directly reference it.
+ *
+ * Then, you can easily use them anywhere in this CSS stylesheet!
+ */
+
+@font-face {
+  font-family: "Vipnagorgialla";
+  src: url("/fonts/Vipnagorgialla RG.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "02.10";
+  src: url("/fonts/02.10FEN.TTF") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* These are some CSS variables that define colors and gaps, reused in lots of spots across the page.
+ * Try using CRTL-F and searching these names in other CSS files to see where they show up!
+ */
+
+:root {
+    /* Colors */
+  --bg-page: #2f2f2f;
+  --bg-content: #efefef;
+  --bg-light-gray: #d9d9d9;
+  --bg-medium-gray: rgb(119, 119, 119);
+  --bg-dark-gray: #3c3c3c;
+
+  --text-dark: #2d2d2d;
+  --text-light: #f7f7f7;
+  --text-orange: rgb(255, 140, 0);
+
+  --gradient-orange-white: linear-gradient(0deg,var(--text-light) 0%, var(--text-orange) 80%);
+  --gradient-gray-dark: linear-gradient(0deg,var(--bg-dark-gray) 0%, var(--bg-medium-gray) 100%);
+  --gradient-gray-light: linear-gradient(0deg,var(--bg-medium-gray) 0%, rgb(167, 167, 167) 100%);
+
+    /* Spacing */
+  --radius: 1.25rem;
+  --gap: 1rem;
+}
+
+
+
+/* These are styling rules for classes that you can apply to any text that should render with the above gradients. 
+ * Gradients can't be applied to text the same way they can to backgrounds, so if you need gradient text, use
+ * classes of this format.
+ */
+
+.gradient-orange-white {
+  background: var(--gradient-orange-white);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* For Safari/Chrome compatibility */
+  color: transparent;
+}

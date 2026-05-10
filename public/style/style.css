@@ -1,0 +1,134 @@
+/* CHIMERA-PORTFOLIO MAIN STYLESHEET */
+
+/* This is the main CSS stylesheet, which contains a bunch of rules that define how the website
+ * looks and feels - like colors, fonts, spacing, layout, and more.
+ * 
+ * This file is where you're able to change almost everything about how the website looks at a
+ * broad scale; changes here will generally affect every page of the site.
+*/
+
+
+
+/* This statement clears the margin of some basic HTML elements so that they're ready for more
+ * custom styling, as seen in the below CSS and in the components.css file.
+ */
+
+header h1,
+header h2,
+footer p,
+main h1,
+main h2,
+main p {
+  margin: 0;
+}
+
+
+
+/* Everything below defines rules for how the page is laid out - how large the header, footer,
+ * sidebar, and body are, how the spacing between them is defined, and where they go on the page.
+ *
+ * Try changing some of the numeric values to see how the sizes adjust on the page! 
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg-page);
+}
+
+body {
+  width: min(90vw);
+  min-height: calc(100vh - 2rem);
+  margin: 1rem auto;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  display: flex;  /* Flex display is a powerful system that lets elements resize with the page */
+  flex-direction: column;
+  gap: var(--gap);
+  background: var(--bg-content);
+  border-radius: 1.5rem;
+  color: var(--text-dark);
+  font-family: Helvetica, sans-serif;  /* Some fonts (like Helvetica) are included by default */
+}
+
+header,
+footer {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  background: var(--bg-light-gray);
+  border-radius: var(--radius);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  gap: var(--gap);
+  align-items: stretch;
+  flex: 1;
+}
+
+.sidebar {
+  flex: 0 1 15%;
+  min-width: 160px;
+  padding: 1rem;
+  background: var(--bg-light-gray);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 1 70%;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+
+/* Rules for mobile responsiveness (width under 800px). These make the site better at
+ * automatically adapting its layout to mobile devices, but they're not entirely foolproof.
+ */
+
+@media (max-width: 800px) {
+  body {
+    width: min(90vw, 1200px);
+    min-height: auto;
+  }
+
+  /* These elements all have rules that make them flexible containers */
+  header,
+  footer,
+  main,
+  .panel1 { 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+    min-width: 0;
+  }
+
+  .content {
+    padding-inline: 0;
+  }
+}
