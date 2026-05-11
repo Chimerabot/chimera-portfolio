@@ -134,7 +134,7 @@ img.logo {
   display: flex;
   flex-direction: row;
   height: 65%;
-  min-height: 350px;
+  min-height: 400px;
 }
 
 img.item-small {
@@ -157,4 +157,35 @@ img.left {
   margin-right: auto;
   margin-top: auto;
   margin-left: 1em;
+}
+
+
+/* Responsive rules for narrow windows (under 800px) */
+
+@media (max-width: 800px) {
+  .bold-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .bold-subtitle {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  .image-box {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+  }
+
+  img.item-small {
+    width: 100%;
+    margin: 1em 0;
+  }
+
+  img.right,
+  img.left,
+  img.mid {
+    margin: 1em 0;
+    align-self: center;
+  }
 }
