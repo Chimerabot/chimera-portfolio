@@ -82,11 +82,35 @@
   color: var(--text-light);
 }
 
-.text-box-dark {
+.text-box.text-box-dark {
   background: var(--gradient-gray-dark);
   border: 3px solid var(--bg-dark-gray);
 }
 
 .content p {
   line-height: 1.7;
+}
+
+.sidebar-button {
+  display: block;
+  width: 100%;
+  appearance: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar-button:hover {
+  background: var(--gradient-gray-dark);
+  border: 3px solid var(--bg-dark-gray);
+}
+
+.sidebar-button.is-active {
+  outline: 3px solid var(--text-light-orange);
+  outline-offset: 2px;
+  color: var(--text-light-orange);
+}
+
+.logo {
+  width: 180px;
+  align-self: center;
 }

@@ -11,30 +11,71 @@
     </head>
 
     <div id="fragment-header" aria-hidden="true"></div>
-    <div id="fragment-body" aria-hidden="true"></div>
+    <div class="page-shell">
+      <div id="fragment-sidebar" aria-hidden="true"></div>
+      <div id="fragment-body" aria-hidden="true"></div>
+    </div>
     <div id="fragment-footer" aria-hidden="true"></div>
 
     <!-- Below is basic JavaScript code that loads each of the above pieces of the webpage, so they can be easily
-    edited in their individual files. This code handles all of the placement of the content. -->
+    edited in their individual files. This code handles all of the placement of the content. I've left some comments
+    explaining what each part does in case you're curious, but you probably won't need to change this part at all. -->
 
     <script>
-      async function loadFragment(id, url) {
+      const pages = {
+        home: '/fragments/body.html',
+        about: '/fragments/body-about.html',
+        projects: '/fragments/body-projects.html',
+        contact: '/fragments/body-contact.html'
+      };
+
+      // This function can grab HTML fragments from the specified location. It's used to fetch anything that lives
+      // in the ./fragments directory.
+      async function loadFragment(id, location) {
         try {
-          const res = await fetch(url);
-          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-          document.getElementById(id).innerHTML = await res.text();
+          const get = await fetch(location);
+          if (!get.ok) throw new Error(get.status + ' ' + get.statusText);
+          const html = await get.text();
+          document.getElementById(id).innerHTML = html;
+          return html;
         } catch (e) {
-          console.error('Error loading fragment: ', url, e);
+          console.error('Error loading fragment: ', location, e);
+          return '';
         }
       }
 
-      // These files below are all the individual components of the webpage. You can add more pieces if you'd like, 
-      // or simply modify the files that are already there - this file loads them in automatically!
+      // This function can activate/deactivate the sidebar buttons.
+      function setSidebarActive(buttonName) {
+        document.querySelectorAll('.sidebar-button').forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.fragment === buttonName);
+        });
+      }
 
-      document.addEventListener('DOMContentLoaded', function() {
-        loadFragment('fragment-header', '/fragments/header.html');
-        loadFragment('fragment-body', '/fragments/body.html');
-        loadFragment('fragment-footer', '/fragments/footer.html');
+      // This function loads the body of the selected page.
+      async function loadBodySection(sectionName) {
+        const location = pages[sectionName] || pages.home;
+        await loadFragment('fragment-body', location);
+        setSidebarActive(sectionName in pages ? sectionName : 'home');
+      }
+
+      // This code is where all the functionality of the buttons is. It listens for when the buttons
+      // are clicked, and then calls a chain of the above functions in order to load the right page.
+      document.addEventListener('click', function(event) {
+        const button = event.target.closest('.sidebar-button[data-fragment]');
+        if (!button) {
+          return;
+        }
+        loadBodySection(button.dataset.fragment);
+      });
+
+      // This code loads everything else (the header, sidebar, and footer).
+      document.addEventListener('DOMContentLoaded', async function() {
+        await Promise.all([
+          loadFragment('fragment-header', '/fragments/header.html'),
+          loadFragment('fragment-sidebar', '/fragments/sidebar.html'),
+          loadFragment('fragment-footer', '/fragments/footer.html')
+        ]);
+        loadBodySection('home');
       });
     </script>
 </html>

@@ -16,9 +16,12 @@
 header h1,
 header h2,
 footer p,
-main h1,
-main h2,
-main p {
+.content h1,
+.content h2,
+.content p,
+.sidebar h1,
+.sidebar h2,
+.sidebar p {
   margin: 0;
 }
 
@@ -67,12 +70,21 @@ footer {
   flex-wrap: wrap;
 }
 
-main {
+.page-shell {
   width: 90%;
   margin: 0 auto;
   display: flex;
   gap: var(--gap);
   align-items: stretch;
+  flex: 1;
+}
+
+.page-shell > div {
+  display: flex;
+  align-items: stretch;
+}
+
+.page-shell > div > * {
   flex: 1;
 }
 
@@ -84,6 +96,7 @@ main {
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
+  gap: var(--gap);
 }
 
 .content {
@@ -109,8 +122,8 @@ main {
   /* These elements all have rules that make them flexible containers */
   header,
   footer,
-  main,
-  .panel1 { 
+  .page-shell
+  { 
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -119,7 +132,7 @@ main {
     flex-wrap: wrap;
   }
 
-  main {
+  .page-shell {
     flex-direction: column;
   }
 

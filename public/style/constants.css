@@ -48,6 +48,7 @@
   --text-dark: #2d2d2d;
   --text-light: #f7f7f7;
   --text-orange: rgb(255, 140, 0);
+  --text-light-orange: rgb(255, 181, 92);
 
   --gradient-orange-white: linear-gradient(0deg,var(--text-light) 0%, var(--text-orange) 80%);
   --gradient-gray-dark: linear-gradient(0deg,var(--bg-dark-gray) 0%, var(--bg-medium-gray) 100%);
