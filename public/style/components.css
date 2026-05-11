@@ -67,10 +67,20 @@
  * colors, spacing, borders, and more. 
  */
 
- .gap {
-    display: inline-block;
-    height: var(--gap);
- }
+.gap {
+  display: inline-block;
+  height: var(--gap);
+}
+
+a {  /* It isn't super obvious, but this is the styling for clickable links. */
+  color: var(--text-orange);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-light-orange);
+  text-decoration: underline;
+}
 
 .text-box {
   display: inline-block;
@@ -110,7 +120,41 @@
   color: var(--text-light-orange);
 }
 
-.logo {
+
+
+/* These class rules apply to images of different types. */
+
+img.logo {
   width: 180px;
   align-self: center;
+}
+
+.image-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 65%;
+  min-height: 350px;
+}
+
+img.item-small {
+  width: 25%;
+  box-shadow: 0 0 16px var(--bg-dark-gray);
+  margin: 1em;
+}
+
+img.right {
+  margin-left: auto;
+  margin-bottom: auto;
+  margin-right: 1em;
+}
+
+img.mid {
+  align-self: center;
+}
+
+img.left {
+  margin-right: auto;
+  margin-top: auto;
+  margin-left: 1em;
 }
